@@ -1,7 +1,16 @@
 "use client"
 import React from 'react'
+import { useState, useEffect } from 'react'
 import HomeCard from '@/app/components/HomeCard'
-import { useState, useEffect, Suspense } from 'react'
+
+interface Product {
+    id: string;
+    title: string;
+    description: string;
+    price: string;
+    thumbnail: string;
+    images: string[];
+}
 
 
 function Products() {
@@ -30,7 +39,7 @@ function Products() {
                 {
                     loading === true ? <div className='text-center p-10'>Loading Products...</div> :
                         (<div className="pt-5 max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 space-x-2 space-y-5">
-                            {productsList.map((product: any) => (
+                            {productsList.map((product: Product) => (
                                 <HomeCard key={product.id} imagePath={product.thumbnail} title={product.title} amount={product.price} id={product.id} />
                             ))}
                         </div>)

@@ -1,4 +1,4 @@
-
+import Image from "next/image";
 
 export default function RootLayout({
   children,
@@ -9,7 +9,7 @@ export default function RootLayout({
     <div>
       <header className="bg-[#E2E2E2] p-2 fixed left-0 right-0">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
-          <img src="/next.svg" alt="Next js logo" className="h-[22px]" />
+          <Image src="/next.svg" alt="Next js logo" className="h-[22px]" width={100} height={60} />
           <ul className="flex items-center gap-4 invisible md:visible">
             <li>Home</li>
             <li>Products</li>

@@ -3,16 +3,18 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import React, { use, useEffect, useState } from 'react'
 
+interface Product {
+    id: number;
+    title: string;
+    description: string;
+    price: number;
+    images: string[];
+}
+
+
 function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
 
     const router = useRouter()
-    interface Product {
-        id: number;
-        title: string;
-        description: string;
-        price: number;
-        images: string[];
-    }
 
     const [product, setProduct] = useState<Product | null>(null)
     const { id } = use(params)
@@ -33,7 +35,7 @@ function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
             })
         }
         fetchProductDetails()
-    }, [])
+    }, [id])
     return (
         <div className='p-10 max-w-7xl mx-auto h-screen'>
             <button onClick={
